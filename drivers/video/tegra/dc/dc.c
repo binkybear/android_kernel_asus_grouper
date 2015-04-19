@@ -114,6 +114,7 @@ void tegra_dc_release_dc_out(struct tegra_dc *dc)
 			dc->stats.underflows_c);                        \
 	} while (0)
 
+#ifdef CONFIG_DEBUG_FS
 static void _dump_regs(struct tegra_dc *dc, void *data,
 		       void (* print)(void *data, const char *str))
 {
@@ -276,6 +277,7 @@ static void _dump_regs(struct tegra_dc *dc, void *data,
 	tegra_dc_release_dc_out(dc);
 	mutex_unlock(&dc->lock);
 }
+#endif
 
 #undef DUMP_REG
 
@@ -2083,6 +2085,7 @@ static int tegra_dc_resume(struct nvhost_device *ndev)
 
 static void tegra_dc_shutdown(struct nvhost_device *ndev)
 {
+#ifndef CONFIG_MACH_GROUPER
 	struct tegra_dc *dc = nvhost_get_drvdata(ndev);
 
 	if (!dc || !dc->enabled)
@@ -2090,6 +2093,7 @@ static void tegra_dc_shutdown(struct nvhost_device *ndev)
 
 	tegra_dc_blank(dc);
 	tegra_dc_disable(dc);
+#endif
 }
 
 extern int suspend_set(const char *val, struct kernel_param *kp)
