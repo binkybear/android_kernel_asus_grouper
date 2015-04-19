@@ -139,7 +139,7 @@ dhd-y := src/aiutils.o src/bcmsdh_sdmmc_linux.o src/dhd_linux.o src/siutils.o sr
 	src/dhd_linux_sched.o src/bcmwifi.o src/dhd_sdio.o src/bcmevent.o src/dhd_bta.o src/hndpmu.o  \
 	src/bcmsdh.o src/dhd_cdc.o src/bcmsdh_linux.o src/dhd_common.o src/linux_osl.o            \
 	src/bcmsdh_sdmmc.o src/dhd_custom_gpio.o src/sbutils.o src/wldev_common.o src/wl_android.o src/dhd_cfg80211.o \
-	src/wl_android.o src/wl_cfg80211.o src/wl_cfgp2p.o src/wldev_common.o src/wl_linux_mon.o src/wl_iw.o \
+	src/wl_android.o src/wl_cfg80211.o src/wl_cfgp2p.o src/wldev_common.o src/wl_linux_mon.o \
 	src/bcmon.o
 
 all:
